@@ -7,7 +7,7 @@ const Home = ({ userObj }) => {
   const [sweets, setSweets] = useState([]);
 
   useEffect(() => {
-    dbService.collection("sweets").onSnapshot((snapshot) => {
+    dbService.collection("sweets").orderBy("createdAt", "desc").onSnapshot((snapshot) => {
       const sweetArray = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

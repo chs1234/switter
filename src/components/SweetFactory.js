@@ -9,11 +9,11 @@ const SweetFactory = ({ userObj }) => {
   const [attachment, setAttachment] = useState("");
 
   const onSubmit = async (event) => {
+    event.preventDefault();
     if (sweet === "") {
       return;
     }
 
-    event.preventDefault();
     let attachmentUrl = "";
     if (attachment) {
       const attachmentRef = storageService
